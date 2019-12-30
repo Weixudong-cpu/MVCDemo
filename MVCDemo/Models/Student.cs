@@ -10,6 +10,7 @@ namespace MVCDemo.Models
     {
         [Key]
         public int Sid { get; set; }
+        public bool Sex { get; set; }
 
         public string Sname { get; set; }
 

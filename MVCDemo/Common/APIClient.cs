@@ -38,8 +38,8 @@ namespace CRM_MVC.Common
                     task = client.PostAsync(actionName, content_post);
                     break;
                 case "put":
-                    //HttpContent content_put = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
-                    task = client.PutAsync (actionName, obj);
+                    HttpContent content_put = new StringContent(JsonConvert.SerializeObject(obj), Encoding.UTF8, "application/json");
+                    task = client.PutAsync(actionName, content_put);
                     break;
                 case "delete":
                     task = client.DeleteAsync(actionName);
