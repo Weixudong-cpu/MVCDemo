@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <script src="~/js/jquery-3.3.1.js"></script>
+    <script src="~/js/jquery.unobtrusive-ajax.js"></script>
+
+<h1>Add</h1>
+@using (Html.BeginForm())
+{
+<ul style="list-style:none">
+    <li>姓名</li>
+    <li><input type="text" id="ss" name="Sname" /></li>
+    <li>爱好</li>
+    <li><input type="text" id="se" name="Sremark" /></li>
+    <li><input type="submit" value="添加" /></li>
+    <li>    <input type="button" value="添加" id="_btn" /></li>
+
+</ul>
+}
+
+<script>
+    $('#_btn').on('click', function () {
+        alert('666');
+        var name = $('#ss').val();
+        var age = $('#se').val();
+
+
+
+         var obj = {
+          Name: name,
+          Age: age
+      }
+           $.ajax({
+            url: "http://localhost:54296/DemApi/Addstu",
+            type: 'post',
+            data: obj,
+            success: function (d) {
+                if (d > 0) {
+                    alert('提交成功');
+                    location.href = "/Default/Index"
+                }
+            }
+
+        })
+    })
+
+     
+
+</script>
+
+

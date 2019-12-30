@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Selone";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*@model  MVCDemo.Models.Student*@
+
+
+<h1>反填</h1>
+@using (Html.BeginForm("Selonet","Default"))
+{
+<ul style="list-style:none">
+    @foreach (var item in ViewBag.list)
+    {
+        <li><input type="hidden" name="Sid" value="@item.Sid" /></li>
+        <li>姓名</li>
+        <li><input type="text" name="Sname" value="@item.Sname" /></li>
+        <li>爱好</li>
+        <li><input type="text" name="Sremark" value="@item.Sremark" /></li>
+        <li><input type="submit" value="修改" /></li>
+    }
+
+</ul>
+}
+

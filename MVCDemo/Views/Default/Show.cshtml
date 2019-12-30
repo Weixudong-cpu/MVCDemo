@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <script src="~/js/jquery-3.3.1.js"></script>
+<h1>Show</h1>
+
+
+
+@using MVCDemo.Models
+@model List<Student>
+
+<div style="margin-top:20px">
+    @using (Html.BeginForm())
+    {
+        <input type="text" name="name" />
+        <input type="submit" value="搜索" />
+    }
+    <input type="button"  id="_btn" value="搜索" />
+    
+</div>
+
+
+
+<table class="table-bordered table">
+    <tr style="background-color:burlywood">
+        <td>Id</td>
+        <td>姓名</td>
+        <td>简介</td>
+        <td>年龄</td>
+        <td>爱好</td>
+        <th>操作</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Sid</td>
+            <td>@item.Sname</td>
+            <td>@item.Sremark</td>
+            <td>@item.Age</td>
+            <td>@item.Hobby</td>
+            <td>
+                @Html.ActionLink("删除", "Del", new { @id = item.Sid })
+                @Html.ActionLink("修改", "Selone", new { @id = item.Sid })
+            </td>
+        </tr>
+    }
+</table>
+
